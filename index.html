@@ -223,119 +223,172 @@
   .cert .status{width:8px; height:8px; border-radius:50%; flex-shrink:0;}
   .status.done{background:var(--term-green);}
   .status.progress{background:var(--amber);}
-<!--
-  CERTIFICATIONS SECTION — paste this into index.html
-  Suggested placement: right after your "Education" section, before "Contact".
-  Also add id="certifications" to your nav if you want a menu link to it.
+  <!-- ---------- CERTIFICATIONS SECTION ---------- -->
 
-  Before pasting:
-  1. Copy jr_penterster.jpg and cyber_101.png into the same folder as index.html
-     (or into an /images folder, and update the src paths below to match).
-  2. This block is self-contained (its own <style>), so it will render correctly
-     even if your site's global CSS doesn't have matching class names.
--->
+<style>
+  .cert-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:18px;
+    margin-top:24px;
+  }
 
-<section id="certifications" style="padding: 64px 24px; background: #0a0e0c;">
-  <style>
-    .cert-wrap {
-      max-width: 880px;
-      margin: 0 auto;
-      font-family: 'Courier New', Consolas, monospace;
-      color: #d8e4dc;
-    }
-    .cert-prompt {
-      color: #5fd68a;
-      font-size: 14px;
-      margin-bottom: 8px;
-      letter-spacing: 0.02em;
-    }
-    .cert-heading {
-      font-size: 28px;
-      font-weight: 700;
-      color: #f2f6f3;
-      margin: 0 0 32px 0;
-    }
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
-    }
-    .cert-card {
-      border: 1px solid #1f2e26;
-      background: #0f1512;
-      border-radius: 6px;
-      overflow: hidden;
-      transition: border-color 0.2s ease;
-    }
-    .cert-card:hover {
-      border-color: #5fd68a;
-    }
-    .cert-card img {
-      width: 100%;
-      display: block;
-      border-bottom: 1px solid #1f2e26;
-    }
-    .cert-body {
-      padding: 16px 18px 20px;
-    }
-    .cert-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #f2f6f3;
-      margin: 0 0 4px 0;
-    }
-    .cert-meta {
-      font-size: 13px;
-      color: #7c8f83;
-      margin: 0 0 10px 0;
-    }
-    .cert-tags {
-      font-size: 12px;
-      color: #5fd68a;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .cert-tags span {
-      border: 1px solid #24382c;
-      padding: 2px 8px;
-      border-radius: 3px;
-    }
-  </style>
+  .cert-card{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:8px;
+    overflow:hidden;
+    transition:transform 0.2s ease, border-color 0.2s ease;
+  }
 
-  <div class="cert-wrap">
-    <div class="cert-prompt">ghaith@security: ~/certifications</div>
-    <h2 class="cert-heading">Certifications</h2>
+  .cert-card:hover{
+    transform:translateY(-3px);
+    border-color:var(--term-green);
+  }
+
+  .cert-image{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+    border-bottom:1px solid var(--border);
+  }
+
+  .cert-content{
+    padding:18px;
+  }
+
+  .cert-content h3{
+    font-size:1rem;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+
+  .cert-provider{
+    color:var(--term-green);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    margin-bottom:6px;
+  }
+
+  .cert-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:var(--text-dim);
+    margin-bottom:12px;
+  }
+
+  .cert-description{
+    color:var(--text-dim);
+    font-size:0.9rem;
+    line-height:1.6;
+  }
+
+  .cert-link{
+    display:inline-block;
+    margin-top:14px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    color:var(--term-green);
+    text-decoration:none;
+    border:1px solid var(--border);
+    padding:7px 11px;
+    border-radius:5px;
+  }
+
+  .cert-link:hover{
+    border-color:var(--term-green);
+  }
+
+  @media(max-width:768px){
+    .cert-grid{
+      grid-template-columns:1fr;
+    }
+
+    .cert-image{
+      height:auto;
+    }
+  }
+</style>
+
+<section id="certifications">
+  <div class="container">
+
+    <div class="section-head">
+      <span class="section-num">05.</span>
+      <h2>Certifications</h2>
+    </div>
 
     <div class="cert-grid">
+
       <div class="cert-card">
-        <img src="jr_penterster.jpg" alt="TryHackMe Jr Penetration Tester certificate">
-        <div class="cert-body">
-          <p class="cert-title">Jr Penetration Tester</p>
-          <p class="cert-meta">TryHackMe · Learning Path · Completed 23 Apr 2024</p>
-          <div class="cert-tags">
-            <span>Penetration Testing</span>
-            <span>Web Exploitation</span>
-            <span>Privilege Escalation</span>
+        <img
+          src="jr_penterster.jpg"
+          alt="TryHackMe Jr Penetration Tester Certificate"
+          class="cert-image"
+        >
+
+        <div class="cert-content">
+          <h3>Jr Penetration Tester Learning Path</h3>
+
+          <div class="cert-provider">TryHackMe</div>
+
+          <div class="cert-date">
+            Completed: April 23, 2024
           </div>
+
+          <p class="cert-description">
+            Hands-on penetration testing training covering reconnaissance,
+            enumeration, web application security, vulnerability assessment,
+            exploitation, and security testing.
+          </p>
+
+          <a
+            href="jr_penterster.jpg"
+            target="_blank"
+            class="cert-link"
+          >
+            View Certificate →
+          </a>
         </div>
       </div>
 
       <div class="cert-card">
-        <img src="cyber_101.png" alt="TryHackMe Cyber Security 101 certificate">
-        <div class="cert-body">
-          <p class="cert-title">Cyber Security 101</p>
-          <p class="cert-meta">TryHackMe · Learning Path · Completed 15 Nov 2025</p>
-          <div class="cert-tags">
-            <span>Fundamentals</span>
-            <span>Networking</span>
-            <span>Linux</span>
+        <img
+          src="cyber_101.png"
+          alt="TryHackMe Cyber Security 101 Certificate"
+          class="cert-image"
+        >
+
+        <div class="cert-content">
+          <h3>Cyber Security 101 Learning Path</h3>
+
+          <div class="cert-provider">TryHackMe</div>
+
+          <div class="cert-date">
+            Completed: November 15, 2025
           </div>
+
+          <p class="cert-description">
+            Cybersecurity fundamentals covering networking, Linux,
+            web security, offensive security, defensive security,
+            and security operations.
+          </p>
+
+          <a
+            href="cyber_101.png"
+            target="_blank"
+            class="cert-link"
+          >
+            View Certificate →
+          </a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
+
   /* ---------- CONTACT / FOOTER ---------- */
   footer{
     background:var(--navy-deep); color:#DCE4E9;
